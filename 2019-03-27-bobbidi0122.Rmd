@@ -95,6 +95,57 @@ startingDate + years(1)
 startingDate+366
 startingDate + dyears(1)
 ```
+```{r}
+x <- 5
+y <- 7
+```
+```{r}
+x2 <- c(1,5,10)
+y2 <- c(-1,5,20)
 
+```
+```{r}
+x2>4
+x==y
+x>y
+x2<y2
+```
+```{r}
+x3 <- c("小明","小花")
+y3 <- c("小明","小華")
+```
 
+```{r}
+x3
+y3
+x3 %in% y3
+```
+
+```{r}
+x4 <- c(1,5,8)
+y4 <- c(5,8)
+
+x4 %in% y4
+y4 %in% x4
+```
+```{r}
+x2 <- c(1,NA,10)
+y2 <- c(-1,NA,20)
+
+x3 <- c(NA,"小花")
+y3 <- c(NA,"小華")
+
+is.na(x2)
+is.na(y2)
+sum(x2)
+```
+```{r}
+sum(x2)
+sum(x2, na.rm=F)
+sum(x2, na.rm=T)
+
+```
+```{r}
+0/0
+```
 
