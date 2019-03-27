@@ -46,4 +46,14 @@ as.double(LisbonDateTime)
 ```{r}
 as.integer(twDateTime)
 ```
+```{r}
+mdy("01-01-1970") 
+```
+```{r}
+as.integer(ymd("1970-01-01"))
+as.integer(ymd("1970-01-02"))
+as.integer(ymd("1971-01-01"))
+as.double(ymd("1971-01-01"))
+```
+
 
