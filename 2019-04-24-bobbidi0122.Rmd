@@ -91,3 +91,20 @@ toupper(m) # 轉成大寫
 m
 ```
 
+```{r}
+matObj1
+matObj1[c(T,F,F,T,F),c(F,T,T)]
+matObj1[c(1,4),c(2,3)] #取第一和第四列，第二和第三行
+matObj1[c(1,4),c(F,T,T)] #可以數字和Logical混搭
+matObj1[c(F,F,TRUE,F,F),c(F,TRUE,F)]
+```
+```{r}
+library(readr)
+classSurvey <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/classSurvey.csv")
+```
+```{r}
+classSurvey[c(1:60),c(F,F,F,T,T,F)]
+classSurvey[,c(4,5)]
+classSurvey[c("性別","本學期學分數")]
+```
+
