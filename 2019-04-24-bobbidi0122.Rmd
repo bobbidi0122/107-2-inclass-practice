@@ -23,6 +23,7 @@ class(MAT2)
 typeof(MAT2)
 MAT2[[2]]
 MAT2[c(T,F,F,T)]
+MAT2[c(1,4)]
 ```
 ```{r}
 StuList <- list(
@@ -67,5 +68,26 @@ class(StuDF4)
 ```
 ```{r}
 StuDF4
+```
+
+```{r}
+chosenLETTERS <- LETTERS[1:15]
+matObj1 <- matrix(chosenLETTERS,5,3)
+matObj1
+```
+```{r}
+chosenletters <- letters[1:16]
+matObj1 <- matrix(chosenletters,4,4)
+matObj1
+```
+```{r}
+LETTERS
+chosenLETTERS <- LETTERS[1:8]
+m <- matrix(chosenLETTERS,2,4)
+m
+tolower(m) # 轉成小寫
+m
+toupper(m) # 轉成大寫
+m
 ```
 
