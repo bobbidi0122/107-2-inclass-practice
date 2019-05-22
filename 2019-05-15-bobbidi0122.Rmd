@@ -161,5 +161,47 @@ invoiceList$UTC時間[tpLogical] <-
 
 invoiceList 
 ```
+```{r}
+ymd_hms("1973-02-21 12:05:22",tzone="America/New_York")-> fromDateTIme
+with_tz(fromDateTIme, tzone="Asia/Taipei")-> toDateTime
 
+ymd_hms_tzChange <- function(input,fromTzone,toTzone){
+  time1 <- ymd_hms(input,tzone=fromTzone)
+  answer <- with_tz(time1,tzone = toTzone)
+  return(answer)
+}
+ymd_hms_tzChange("1973-02-21 12:05:22","America/New_York","Asia/Taipei")
+```
+```{r}
+library(stringr)
+sample(99:103,15,replace = T)-> yy
+sample(1:12,15,replace=T)-> mm
+str_c("民國",str_pad(yy,3,"left","0"),"年",mm,"月") -> twDates
+```
+```{r}
+library(stringr); library(lubridate)
+yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911  #?<=(民國)：取出前面的字是"民國"的數字[:digit:]+們
+mm<-str_extract(twDates,"[:digit:]+(?=月)")  #取出後面接著月的數字
+yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+```
+```{r}
+date_convert_twYM <- function(twDates){
+  #twDates
+  yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
+  mm<-str_extract(twDates,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,"01",sep="-"))
+  return(yyyymmdd)
+}
+```
+
+```{r}
+date_convert_twYM <- function(twDates,dd="01"){
+  #twDates
+  yyyy<-as.integer(str_extract(twDates,"(?<=(民國))[:digit:]+"))+1911
+  mm<-str_extract(twDates,"[:digit:]+(?=月)")
+  yyyymmdd <- ymd(str_c(yyyy,mm,dd,sep="-"))
+  return(yyyymmdd)
+}
+date_convert_twYM("民國85年4月30日", "30")
+```
 
